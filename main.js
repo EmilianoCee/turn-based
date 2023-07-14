@@ -24,21 +24,41 @@ Point.prototype.draw = function() {
 // empty array called points to store the multiple instances of point
 let points = [];
 
+for (let i = 0; i < 7; i++) {
+    let point = new Point(
+        (canvasWidth/2),
+        (canvasHeight/2) + (canvasHeight/7.5)*(i-3),
+        `rgb(255, 0, 0)`,
+        15
+    );
+    points.push(point)
+}
 
-for (let k = 0; k <= 3; k++) {
-    let int = 1;
-    if(k%2) {
-        int *= -1;
+for (let i = 0; i < 7; i++) {
+    if (i==3) {
+        i++;
     }
-    for (let j = 0; j <= 2; j++) {
-        for (let i = 0; i <= j; i++) {
-            let point = new Point(
-                (canvasWidth/2) + (canvasWidth/20)*(i+1) * int,
-                (canvasHeight/2) + (canvasWidth/20)*(j+1) * int,
-                `rgb(${100*j}, 150, ${100*i})`,
-                15
-            );
-            points.push(point);
+    let point = new Point(
+        (canvasWidth/2) + (canvasWidth/10)*(i-3),
+        (canvasHeight/2),
+        `rgb(0, 0, 255)`,
+        15
+    );
+    points.push(point)
+}
+
+for (let l = 1; l <= 2; l++) {
+    for (let k = 1; k <= 2; k++) {
+        for (let j = 0; j <= 2; j++) {
+            for (let i = 0; i <= j; i++) {
+                let point = new Point(
+                    (canvasWidth/2) + (canvasWidth/10)*(i+1) * (k%2*2-1),
+                    (canvasHeight/2) + (canvasHeight/7.5)*(j-3) * (l%2*2-1),
+                    `rgb(0, 255, 0)`,
+                    15
+                );
+                points.push(point);
+            }
         }
     }
 }
