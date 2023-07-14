@@ -28,7 +28,7 @@ for (let i = 0; i < 7; i++) {
     let point = new Point(
         (canvasWidth/2),
         (canvasHeight/2) + (canvasHeight/7.5)*(i-3),
-        `rgb(255, 0, 0)`,
+        `rgb(255, 255, 255)`,
         15
     );
     points.push(point)
@@ -41,7 +41,7 @@ for (let i = 0; i < 7; i++) {
     let point = new Point(
         (canvasWidth/2) + (canvasWidth/10)*(i-3),
         (canvasHeight/2),
-        `rgb(0, 0, 255)`,
+        `rgb((255, 255, 255)`,
         15
     );
     points.push(point)
@@ -54,7 +54,7 @@ for (let l = 1; l <= 2; l++) {
                 let point = new Point(
                     (canvasWidth/2) + (canvasWidth/10)*(i+1) * (k%2*2-1),
                     (canvasHeight/2) + (canvasHeight/7.5)*(j-3) * (l%2*2-1),
-                    `rgb(0, 255, 0)`,
+                    `rgb(255, 255, 255)`,
                     15
                 );
                 points.push(point);
@@ -62,7 +62,17 @@ for (let l = 1; l <= 2; l++) {
         }
     }
 }
-console.log(points)
+
+points[3].color = `rgb(255,0,0)`;
+
+for (let i = 0; i < 2; i++) {
+    points[1+(i*4)].color = `rgb(255,140,0)`;
+}
+
+for (let i = 0; i < 4; i++) {
+    points[15+(i*6)].color = `rgb(70,130,180)`;
+}
+
 
 function loop() {
     ctx.fillStyle = `rgba(0, 0, 0, 0.25)`;
